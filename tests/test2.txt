@@ -1,0 +1,25 @@
+def set()
+	a := 1
+	c := 2
+	d := 3
+	return
+fed
+
+def diff(a, b, c)
+	c := b - a
+	return c
+fed
+
+def sum(a, b)
+	return a + b
+fed
+
+def main()
+	a := 4
+	b := 5
+	ans := sum(a, b) + 1 - diff(a, b, sum(a, b - 1))
+	i:= 6
+	set()
+	ans := ans + i
+	return
+fed
