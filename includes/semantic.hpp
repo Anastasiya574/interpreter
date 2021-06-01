@@ -6,14 +6,14 @@
 #include <map>
 #include "lexem.hpp"
 
-void init_labels(vector<Lexem *> &infix, int row);
+void init_labels(std::vector<Lexem *> &infix, int row);
 
-void init_loops(vector<vector<Lexem *>> &infix);
+void init_loops(std::vector<std::vector<Lexem *>> &infix);
 
-void init_function_start_vars(vector<Lexem *> &infix, int &i, map<string, set<string>> &func_var_table);
+void init_function_start_vars(std::vector<Lexem *> &infix, int &i, std::map<std::string, std::set<std::string>> &func_var_table);
 
-void init_functions(vector<vector<Lexem *>> &infix);
+void init_functions(std::vector<std::vector<Lexem *>> &infix);
 
-int evaluate_postfix(vector<vector<Lexem *>> &postfix, int row, Function **function_field, Number **res);
+int evaluate_postfix(std::vector<std::vector<Lexem *>> &postfix, int row, Function **function_field, Number **res);
 
 #endif

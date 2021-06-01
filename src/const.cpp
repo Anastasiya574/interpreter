@@ -3,7 +3,7 @@
 
 int PRIORITY[] = { 
     -5,
-    -6, -5, -5, 
+    -6, 0, 0, 
     -1, -1, -4, 
     -3, -3,
     -3, -3,
@@ -21,13 +21,13 @@ int PRIORITY[] = {
     7, 7,
     8, 8,
     9, 9,
-    10, 10, 10
+    10, 10, 10,
 };
 
 std::string OPERTEXT[] = {
     ",",
     "return",
-    "function", "endfunction",
+    "def", "fed",
     "[", "]", "size",
     "if", "then",
     "else", "endif",
@@ -45,13 +45,14 @@ std::string OPERTEXT[] = {
     ">=", ">",
     "<<", ">>",
     "+", "-",
-    "*", "/", "%"
+    "*", "/", "%",
 };
 
 bool DEBUG = false;
 
 bool INTERACTIVE = true;
 
-int OPER_OR_VAR[] = {3, 4, 5, 6, 7, 8, 10, 13, 14};
+int OPER_OR_VAR[] = {1, 2, 3, 6, 7, 8, 9, 10, 11, 13, 14, 19, 20, 38, 39};
 
 int OPER_NUMBER = sizeof(PRIORITY) / sizeof(int);
+

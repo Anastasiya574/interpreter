@@ -5,7 +5,6 @@
 #include <map>
 #include <set>
 #include <cctype>
-
 #include "const.hpp"
 #include "lexem.hpp"
 #include "lexical.hpp"
@@ -27,7 +26,7 @@ std::vector<Lexem *> build_postfix(std::vector<Lexem *> infix) {
 			lexem_stack.push_back(element);
 			continue;
 		}
-		OPERATOR operatortype = ((Oper *)element) -> get_type();
+		OPERATOR operatortype = ((Oper *)element)->get_type();
 		if (operator_stack.empty() || operatortype == LBRACKET) {
 			operator_stack.push_back((Oper *)element);
 			continue;
@@ -49,14 +48,16 @@ std::vector<Lexem *> build_postfix(std::vector<Lexem *> infix) {
 				operator_stack.pop_back();
 			}
 			continue;
-		} else if(operatortype == RSQRBRACKET) {
-        while(!operator_stack.empty() && (operator_stack.back()->get_type() != LSQRBRACKET)) {
-            lexem_stack.push_back(operator_stack.back());
-            operator_stack.pop_back();  
-        }
-        lexem_stack.push_back(operator_stack.back());
-        operator_stack.pop_back();  
-    }
+		} 
+		if(operatortype == RSQRBRACKET) {
+			while(!operator_stack.empty() && (operator_stack.back()->get_type() != LSQRBRACKET)) {
+				lexem_stack.push_back(operator_stack.back());
+				operator_stack.pop_back();  
+			}
+			lexem_stack.push_back(operator_stack.back());
+			operator_stack.pop_back();
+			continue;
+		}
 		if (operatortype == COMMA) {
 			while ((operator_stack.back()) -> get_type() != LBRACKET) {
 				lexem_stack.push_back(operator_stack.back());
@@ -81,6 +82,9 @@ std::vector<Lexem *> build_postfix(std::vector<Lexem *> infix) {
 	while (!operator_stack.empty()) {
 		lexem_stack.push_back(operator_stack.back());
 		operator_stack.pop_back();
+	}
+	for(int i = 0; i < lexem_stack.size(); ++i) {
+		lexem_stack[i]->print();
 	}
 	return lexem_stack;
 }

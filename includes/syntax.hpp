@@ -6,6 +6,6 @@
 #include <map>
 #include "lexem.hpp"
 
-vector<Lexem *> build_postfix(std::vector<Lexem *> infix);
+std::vector<Lexem *> build_postfix(std::vector<Lexem *> infix);
 
 #endif

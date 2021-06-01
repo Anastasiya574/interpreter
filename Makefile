@@ -4,6 +4,8 @@ test2:
 	./bin/interpreter < tests/test2.txt
 test3:
 	./bin/interpreter < tests/test3.txt
+test4:
+	./bin/interpreter < tests/test4.txt
 rm:
 	rm bin/interpreter
 interpreter:
